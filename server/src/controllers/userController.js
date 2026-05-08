@@ -5,6 +5,7 @@ exports.getAll = async (req, res) => {
     const users = await userService.getAll();
     res.json({ data: users });
   } catch (err) {
+    console.error('[userController.getAll]', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
@@ -14,11 +15,8 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password)
       return res.status(400).json({ error: 'email and password are required' });
-
     const token = await userService.login(email, password);
-    if (!token)
-      return res.status(401).json({ error: 'Invalid credentials' });
-
+    if (!token) return res.status(401).json({ error: 'Invalid credentials' });
     res.json({ token });
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });
