@@ -51,3 +51,5 @@ Copy `.env.example` to `.env` — never commit `.env`.
 
 ## API Docs
 See `server/README.md` and import `server/postman_collection.json` into Postman.
+
+<!-- develop branch marker — integration branch -->
