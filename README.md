@@ -53,3 +53,7 @@ Copy `.env.example` to `.env` — never commit `.env`.
 See `server/README.md` and import `server/postman_collection.json` into Postman.
 
 <!-- develop branch marker — integration branch -->
+
+## Dependency Policy
+- All deps pinned to minor version (`^1.x.x`) — patch updates via Dependabot
+- Security patches applied within 48h of advisory
